@@ -1,6 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from pages.base_page import Page
+from app.application import Application
+from support.logger import logger
 
 
 def browser_init(context):
