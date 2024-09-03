@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 #from pages.header import Header
 from pages.base_page import Page
 from time import sleep
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class MainPage(Page):
@@ -13,11 +14,12 @@ class MainPage(Page):
 
     def off_plan_btn(self):
         elements = self.driver.find_elements(*self.OFF_PLAN_BTN)
+        sleep(3)
         if elements:
             first_element = elements[0]
             first_element.click()
 
-            self.wait_and_click(*self.OFF_PLAN_BTN)
+            self.wait_until_clickable(*self.OFF_PLAN_BTN)
         else:
             print("No elements found")
 
@@ -32,6 +34,7 @@ class MainPage(Page):
         self.find_element(*self.ON_SALE).click()
 
     def verify_on_sale(self):
+        sleep(3)
         self.find_element(*self.VERIFY_ON_SALE)
         self.verify_text('On sale', *self.VERIFY_ON_SALE)
 
