@@ -27,31 +27,27 @@ def log_in(context, email):
 
 @when('Click on “off plan” at the left side menu')
 def off_plan_btn(context):
-    context.main_page = MainPage(context.driver)
     context.main_page.off_plan_btn()
 
 
 @then('Verify the right page opens')
 def off_plan_opens(context):
-    context.main_page = MainPage(context.driver)
     context.main_page.off_plan_opens()
 
 
 @when('Click on Sales status')
 def sales_status(context):
-    context.main_page = MainPage(context.driver)
+    #context.main_page = MainPage(context.driver)
     context.main_page.sales_status()
 
 
 @when('Filter by sale status of “On Sale”')
 def on_sale(context):
-    context.main_page = MainPage(context.driver)
     context.main_page.on_sale()
 
 
 @then('Verify each product contains the "On Sale" tag')
 def verify_on_sale(context):
-    context.main_page = MainPage(context.driver)
     context.main_page.verify_on_sale()
 
 
