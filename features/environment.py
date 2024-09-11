@@ -14,6 +14,10 @@ def browser_init(context, scenario_name):
     """
     :param context: Behave context
     """
+    mobile_emulation = {"deviceName": "Nexus 5"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    #context.driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub', options=chrome_options)
     driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
@@ -30,9 +34,13 @@ def browser_init(context, scenario_name):
     #
     # options = Options()
     # bstack_options = {
-    #     "os": "OS X",
-    #     "osVersion": "Sonoma",
-    #     "browserName": "Firefox",
+    #     # "os": "OS X",
+    #     # "osVersion": "Sonoma",
+    #     # "browserName": "Firefox",
+    #     "deviceName": "iPhone 15 Pro Max",
+    #     "osVersion": "17",
+    #     "browserName": "chromium",
+    #     "deviceOrientation": "portrait",
     #     'sessionName': scenario_name
     # }
     # options.set_capability('bstack:options', bstack_options)
